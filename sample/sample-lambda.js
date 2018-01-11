@@ -1,6 +1,17 @@
 let AWS = require('aws-sdk');
-exports.handler = function(event, context, callback){
+const ddb = new AWS.DynamoDB.DocumentClient();
+exports.handler = function (event, context, callback) {
 
-    console.log("Lambda started");
+    ddb.put({
+        TableName: 'hiruS3Sample123',
+        Item: {}
+    }, function (err, data) {
+        if (err) {
+            //handle error
+        } else {
+            //your logic goes here
+        }
+    });
+
 
 }
